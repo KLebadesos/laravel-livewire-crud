@@ -1,14 +1,14 @@
 <div>
-    @if (count($errors) > 0)
-        <div class="alert alert-danger">
-            <a href="#" class="close" data-dismiss="alert">&times;</a>
-            <strong>Sorry!</strong> invalid input.<br><br>
-            <ul style="list-style-type:none;">
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
+    @if($errors->any())
+    <div class="alert alert-danger mt-2">
+        <ul class="list-group">
+            @foreach($errors->all() as $error)
+                <li class="list-group-item text-danger">
+                    {{ $error }}
+                </li>
+            @endforeach
+        </ul>
+    </div>
     @endif
 
     @if($updateForm) <!-- if edit() functions was triggered it will execute updateMode = true -->
